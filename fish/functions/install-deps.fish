@@ -3,5 +3,5 @@ function install-deps
 	set depslist $(cat ~/repos/dotfiles/modules.md)
 	echo $depslist
 	sudo pacman -S $depslist
-	echo "Deps installation done."
+	echo -e "\nDeps installation done."
 end
