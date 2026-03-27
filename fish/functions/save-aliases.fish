@@ -5,8 +5,7 @@ function save-aliases
 	echo "Aliases saved successfully."
 
 	# commit changes
-	cd ~/repos/dotfiles/ &&
-	git add fish/functions/ &&
+	cd ~/repos/dotfiles/
+	git add fish/functions/
 	git commit -m "(auto) Update fish functions"
-	echo "Commit successfull"
 end
