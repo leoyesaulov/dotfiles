@@ -13,5 +13,5 @@ function save-aliases
 	git commit -m "(auto) Update fish functions"
 
 	# return to the source directory
-	cd cwd
+	cd $cwd
 end
