@@ -1,9 +1,11 @@
 base
 base-devel
+bind
 bitwarden
 bluez
 bluez-utils
 btop
+caddy
 clang
 code
 dkms
@@ -22,6 +24,7 @@ hypridle
 hyprland
 hyprlock
 hyprpolkitagent
+imageviewer
 intel-ucode
 iwd
 jetbrains-toolbox
@@ -36,6 +39,7 @@ man-db
 nano
 neovim
 nvidia-open-dkms
+opam
 openssh
 pipewire
 pipewire-alsa
@@ -50,8 +54,10 @@ slurp
 smartmontools
 sof-firmware
 sudo
+swayimg
 swww
 telegram-desktop
+tigervnc
 uwsm
 vim
 wev
