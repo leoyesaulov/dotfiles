@@ -7,3 +7,5 @@ ToDo:
   - configure notifications when configuring quickshell (notify-send)
   - upd install script with pointing to configs
   - quickshell setup
+
+Notes: links directory contains config files that are to be moved into .confi directories. They source other config files from the repo.
