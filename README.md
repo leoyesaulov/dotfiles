@@ -8,4 +8,6 @@ ToDo:
   - upd install script with pointing to configs
   - quickshell setup
 
-Notes: links directory contains config files that are to be moved into .confi directories. They source other config files from the repo.
+Notes: 
+  - links directory contains config files that are to be moved into .confi directories. They source other config files from the repo.
+  - dont forget to link fastfetch configs with <ln targetfile linkname>
