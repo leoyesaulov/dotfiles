@@ -1,1 +1,1 @@
-launch sh -c "fastfetch -c ../fastfetch/config.jsonc && fish"
+launch sh -c "fastfetch -c ~/repos/dotfiles/fastfetch/config.jsonc && fish"
