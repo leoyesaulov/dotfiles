@@ -1,3 +1,3 @@
 function detach --wraps='nohup'
-	nohup $argv &
+	nohup $argv >/dev/null 2>&1
 end
