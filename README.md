@@ -11,3 +11,10 @@ ToDo:
 Notes: 
   - links directory contains config files that are to be moved into .confi directories. They source other config files from the repo.
   - dont forget to link fastfetch configs with <ln targetfile linkname>
+
+  Printer Setup:
+  - install cups
+  - enable and start cups.service
+  - get drivers (common: cups-pdf and foomatic-db) (brother-specific: brlaser)
+  - goto localhost:631 and configure
+  - use 'lp' to print
