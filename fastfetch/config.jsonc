@@ -116,7 +116,6 @@
 		"processingTimeout": 5000,
 		"detectVersion": true,
 		"playerName": "",
-		"dsForceDrm": false
 	},
 	"modules": [
 		{
