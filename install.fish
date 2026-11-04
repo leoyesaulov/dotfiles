@@ -1,21 +1,39 @@
-#!/bin/fish
+#!/usr/bin/env fish
+# Link hyprland, kitty, fish and fastfetch configs from this repo into ~/.config.
+# Packages are installed by install.sh, which calls this script.
 
-echo -e "\ninstall.fish has been called"
+set -l repo (path resolve (status dirname))
+set -l conf (set -q XDG_CONFIG_HOME; and echo $XDG_CONFIG_HOME; or echo ~/.config)
 
-# copy fish functions into .config/fish
-for file in ~/repos/dotfiles/fish/functions/*;
-	cp $file "~/.config/fish/functions/$(path basename $file)"
-end;
+echo "Linking configs from $repo"
 
-# install dependencies from modules.md
-install-deps
+# fish: symlink each function (leaves non-repo functions alone)
+mkdir -p $conf/fish/functions
+for file in $repo/fish/functions/*.fish
+    ln -sf $file $conf/fish/functions/(path basename $file)
+end
+echo "fish functions -> $conf/fish/functions"
 
-# link hyprland configs (backs up existing ones)
-bash ~/repos/dotfiles/hypr/install.sh
+# hyprland: backs up existing configs and links hypr/links/*
+bash $repo/hypr/install.sh
+or echo "warning: hypr/install.sh failed" >&2
 
-# create hard link for fastfetch config
-rm -f ~/.config/fastfetch/config.jsonc
-ln "~/repos/dotfiles/fastfetch/config.jsonc" "~/.config/fastfetch/config.jsonc"
+# kitty: kitty.conf only includes the repo config
+set -l kitty_conf $conf/kitty/kitty.conf
+set -l kitty_line "include $repo/kitty/source.conf"
+mkdir -p $conf/kitty
+if test -e $kitty_conf; or test -L $kitty_conf
+    if test "$(cat $kitty_conf 2>/dev/null)" != "$kitty_line"
+        mv -f $kitty_conf $kitty_conf.bak
+        echo "backed up old kitty.conf -> $kitty_conf.bak"
+    end
+end
+echo $kitty_line >$kitty_conf
+echo "kitty.conf -> $kitty_line"
 
-# return to the working directory prior to script run
-cd -
+# fastfetch: symlink config
+mkdir -p $conf/fastfetch
+ln -sfn $repo/fastfetch/config.jsonc $conf/fastfetch/config.jsonc
+echo "fastfetch config -> $conf/fastfetch/config.jsonc"
+
+echo "Done."

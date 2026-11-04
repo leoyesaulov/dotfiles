@@ -1,17 +1,16 @@
 clone into ~/repos/ -> Todo: relative dirs
 activate hyprland configs: hypr/install.sh (or hypr-install in fish) -> symlinks hypr/links/* into ~/.config/hypr
 refresh dependency list: refresh-deps (alias for pacman -Qeq >> modules.md)
-to install deps use: cat modules.md | xargs sudo pacman -S
+install (packages + hypr/kitty/fish/fastfetch configs): bash install.sh (or dotfiles-install in fish)
+install full package list (optional): cat modules.md | xargs sudo pacman -S --needed
 
 ToDo: 
   - configure notifications when configuring quickshell (notify-send)
-  - upd install script with pointing to configs
   - quickshell setup
   - implement "move workspace between displays" bind
 
 Notes: 
   - links directory contains config files that are to be moved into .confi directories. They source other config files from the repo.
-  - dont forget to link fastfetch configs with <ln targetfile linkname>
 
   Printer Setup:
   - install cups
