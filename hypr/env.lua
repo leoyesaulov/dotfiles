@@ -1,0 +1,5 @@
+-- environment variables
+-- hl.env("AWWW_TRANSITION_FPS", "144")
+-- hl.env("AWWW_TRANSITION_BEZIER", ".7,.22,.3,.78")
+-- hl.env("AWWW_TRANSITION_DURATION", "3")
+-- hl.env("AWWW_TRANSITION", "center")
